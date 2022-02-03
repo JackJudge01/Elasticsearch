@@ -1,0 +1,143 @@
+PUT /stac-v3-planet?pretty
+{
+    "settings" : {
+        "number_of_shards" : 1,
+        "number_of_replicas" : 1
+    },
+   "mappings" : {
+      "_doc" : {
+        "dynamic_templates" : [
+          {
+            "strings" : {
+              "match_mapping_type" : "string",
+              "mapping" : {
+                "ignore_above" : 512,
+                "type" : "keyword"
+              }
+            }
+          }
+        ],
+        "properties" : {
+          "assets" : {
+            "properties" : {
+              "filetype" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "href" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "name" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              }
+            }
+          },
+          "bbox" : {
+            "type" : "float"
+          },
+          "geometry" : {
+            "type" : "geo_shape"
+          },
+          "id" : {
+            "type" : "keyword"
+          },
+          "links" : {
+            "type" : "object",
+            "enabled" : false
+          },
+          "properties" : {
+            "properties" : {
+              "centroid" : {
+                "type" : "geo_point"
+              },
+              "end" : {
+                "type" : "date"
+              },
+              "imagery:created" : {
+                "type" : "date"
+              },
+              "imagery:imageDate" : {
+                "type" : "date"
+              },
+              "imagery:imageResolutionUnits" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:ingested" : {
+                "type" : "boolean"
+              },
+              "imagery:ingestedDate" : {
+                "type" : "date"
+              },
+              "imagery:instrument" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:md5" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:name" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:processingSource" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:productType" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:resampleResolution" : {
+                "type" : "float"
+              },
+              "imagery:sourceImageId" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:subscriptionId" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:updated" : {
+                "type" : "date"
+              },
+              "imagery:usable" : {
+                "type" : "boolean"
+              },
+              "license" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "planet:itemType" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "planet:stripId" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "provider" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "start" : {
+                "type" : "date"
+              },
+              "type" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              }
+            }
+          },
+          "type" : {
+            "type" : "keyword"
+          }
+        }
+      }
+    }
+  }
+

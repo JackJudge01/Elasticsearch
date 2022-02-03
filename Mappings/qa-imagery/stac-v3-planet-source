@@ -1,0 +1,155 @@
+PUT /stac-v3-planet-source?pretty
+{
+    "settings" : {
+        "number_of_shards" : 1,
+        "number_of_replicas" : 1
+    },
+  "mappings" : {
+      "_doc" : {
+        "dynamic_templates" : [
+          {
+            "strings" : {
+              "match_mapping_type" : "string",
+              "mapping" : {
+                "ignore_above" : 512,
+                "type" : "keyword"
+              }
+            }
+          }
+        ],
+        "properties" : {
+          "bbox" : {
+            "type" : "float"
+          },
+          "geometry" : {
+            "type" : "geo_shape"
+          },
+          "id" : {
+            "type" : "keyword"
+          },
+          "links" : {
+            "type" : "object",
+            "enabled" : false
+          },
+          "properties" : {
+            "properties" : {
+              "centroid" : {
+                "type" : "geo_point"
+              },
+              "end" : {
+                "type" : "date"
+              },
+              "imagery:sourceImageId" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "license" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "planet:acquired" : {
+                "type" : "date"
+              },
+              "planet:anomalous_pixels" : {
+                "type" : "float"
+              },
+              "planet:black_fill" : {
+                "type" : "long"
+              },
+              "planet:cloud_cover" : {
+                "type" : "float"
+              },
+              "planet:columns" : {
+                "type" : "long"
+              },
+              "planet:epsg_code" : {
+                "type" : "long"
+              },
+              "planet:grid_cell" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "planet:ground_control" : {
+                "type" : "boolean"
+              },
+              "planet:gsd" : {
+                "type" : "float"
+              },
+              "planet:instrument" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "planet:item_type" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "planet:origin_x" : {
+                "type" : "long"
+              },
+              "planet:origin_y" : {
+                "type" : "long"
+              },
+              "planet:pixel_resolution" : {
+                "type" : "long"
+              },
+              "planet:published" : {
+                "type" : "date"
+              },
+              "planet:reflectanceCoefficient_Band1" : {
+                "type" : "float"
+              },
+              "planet:reflectanceCoefficient_Band2" : {
+                "type" : "float"
+              },
+              "planet:reflectanceCoefficient_Band3" : {
+                "type" : "float"
+              },
+              "planet:reflectanceCoefficient_Band4" : {
+                "type" : "float"
+              },
+              "planet:reflectanceCoefficient_Band5" : {
+                "type" : "float"
+              },
+              "planet:rows" : {
+                "type" : "long"
+              },
+              "planet:satellite_id" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "planet:strip_id" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "planet:sun_azimuth" : {
+                "type" : "float"
+              },
+              "planet:sun_elevation" : {
+                "type" : "float"
+              },
+              "planet:updated" : {
+                "type" : "date"
+              },
+              "planet:view_angle" : {
+                "type" : "float"
+              },
+              "provider" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "start" : {
+                "type" : "date"
+              },
+              "type" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              }
+            }
+          },
+          "type" : {
+            "type" : "keyword"
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,65 @@
+PUT /stac-v2-imagery?pretty
+{
+    "settings" : {
+        "number_of_shards" : 1,
+        "number_of_replicas" : 1
+    },
+ "mappings" : {
+      "_doc" : {
+        "dynamic_templates" : [
+          {
+            "strings" : {
+              "match_mapping_type" : "string",
+              "mapping" : {
+                "ignore_above" : 512,
+                "type" : "keyword"
+              }
+            }
+          }
+        ],
+        "properties" : {
+          "assets" : {
+            "properties" : {
+              "filetype" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "href" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "name" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "type" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              }
+            }
+          },
+          "id" : {
+            "type" : "keyword"
+          },
+          "links" : {
+            "type" : "object",
+            "enabled" : false
+          },
+          "properties" : {
+            "properties" : {
+              "type" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "version" : {
+                "type" : "long"
+              }
+            }
+          },
+          "type" : {
+            "type" : "keyword"
+          }
+        }
+      }
+    }
+  }

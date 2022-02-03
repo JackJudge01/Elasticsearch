@@ -1,0 +1,97 @@
+PUT /stac-v2-field?pretty
+{
+    "settings" : {
+        "number_of_shards" : 1,
+        "number_of_replicas" : 1
+    },
+    "mappings" : {
+      "_doc" : {
+        "dynamic_templates" : [
+          {
+            "strings" : {
+              "match_mapping_type" : "string",
+              "mapping" : {
+                "ignore_above" : 512,
+                "type" : "keyword"
+              }
+            }
+          }
+        ],
+        "properties" : {
+          "bbox" : {
+            "type" : "float"
+          },
+          "geometry" : {
+            "properties" : {
+              "coordinates" : {
+                "type" : "float"
+              },
+              "type" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              }
+            }
+          },
+          "id" : {
+            "type" : "keyword"
+          },
+          "links" : {
+            "type" : "object",
+            "enabled" : false
+          },
+          "properties" : {
+            "properties" : {
+              "centroid" : {
+                "properties" : {
+                  "lat" : {
+                    "type" : "float"
+                  },
+                  "lon" : {
+                    "type" : "float"
+                  }
+                }
+              },
+              "field:endDate" : {
+                "type" : "date"
+              },
+              "field:geohash" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "field:geometryUpdatedTimestamp" : {
+                "type" : "date"
+              },
+              "field:seasonEnd" : {
+                "type" : "date"
+              },
+              "field:seasonStart" : {
+                "type" : "date"
+              },
+              "field:startDate" : {
+                "type" : "date"
+              },
+              "field:updated" : {
+                "type" : "date"
+              },
+              "field:usable" : {
+                "type" : "boolean"
+              },
+              "start" : {
+                "type" : "date"
+              },
+              "type" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "version" : {
+                "type" : "long"
+              }
+            }
+          },
+          "type" : {
+            "type" : "keyword"
+          }
+        }
+      }
+    }
+  }
