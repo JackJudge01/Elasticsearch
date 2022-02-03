@@ -1,0 +1,263 @@
+PUT /stac-v2-pca2?pretty
+{
+    "settings" : {
+        "number_of_shards" : 1,
+        "number_of_replicas" : 1
+    },
+    "mappings" : {
+      "_doc" : {
+        "dynamic_templates" : [
+          {
+            "strings" : {
+              "match_mapping_type" : "string",
+              "mapping" : {
+                "ignore_above" : 512,
+                "type" : "keyword"
+              }
+            }
+          }
+        ],
+        "properties" : {
+          "assets" : {
+            "properties" : {
+              "filetype" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "href" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "name" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "path" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "type" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              }
+            }
+          },
+          "bbox" : {
+            "type" : "float"
+          },
+          "geometry" : {
+            "properties" : {
+              "coordinates" : {
+                "type" : "float"
+              },
+              "type" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              }
+            }
+          },
+          "id" : {
+            "type" : "keyword"
+          },
+          "links" : {
+            "type" : "object",
+            "enabled" : false
+          },
+          "properties" : {
+            "properties" : {
+              "centroid" : {
+                "properties" : {
+                  "lat" : {
+                    "type" : "float"
+                  },
+                  "lon" : {
+                    "type" : "float"
+                  }
+                }
+              },
+              "end" : {
+                "type" : "date"
+              },
+              "imagery:cloudMaskProcessor" : {
+                "properties" : {
+                  "hash" : {
+                    "type" : "keyword",
+                    "ignore_above" : 512
+                  },
+                  "modelDate" : {
+                    "type" : "date"
+                  },
+                  "version" : {
+                    "type" : "keyword",
+                    "ignore_above" : 512
+                  }
+                }
+              },
+              "imagery:coverageSum" : {
+                "type" : "float"
+              },
+              "imagery:created" : {
+                "type" : "date"
+              },
+              "imagery:fieldFarmIds" : {
+                "type" : "long"
+              },
+              "imagery:fieldGeohash" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:fieldGrowerIds" : {
+                "type" : "long"
+              },
+              "imagery:fieldIds" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:heightPixels" : {
+                "type" : "long"
+              },
+              "imagery:imageDate" : {
+                "type" : "date"
+              },
+              "imagery:imageResolutionUnits" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:instrument" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:md5" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:name" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:percentCloudMaskCoverage_FEI" : {
+                "type" : "float"
+              },
+              "imagery:percentCloudMaskCoverage_UDM" : {
+                "type" : "float"
+              },
+              "imagery:percentImageCoverage" : {
+                "type" : "float"
+              },
+              "imagery:percentImageCoverage_v2" : {
+                "type" : "float"
+              },
+              "imagery:priority" : {
+                "type" : "long"
+              },
+              "imagery:procGitBranch" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:procGitCommit" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:procVersion" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:processingSource" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:productType" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:resampleResolution" : {
+                "type" : "float"
+              },
+              "imagery:sourceImageId" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:subscriptionId" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "imagery:updated" : {
+                "type" : "date"
+              },
+              "imagery:usable" : {
+                "type" : "boolean"
+              },
+              "imagery:widthPixels" : {
+                "type" : "long"
+              },
+              "license" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "merged" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "pca:binEdges" : {
+                "type" : "float"
+              },
+              "pca:binTotals" : {
+                "type" : "float"
+              },
+              "pca:component" : {
+                "type" : "long"
+              },
+              "pca:cutoffs" : {
+                "type" : "float"
+              },
+              "pca:eigenValue" : {
+                "type" : "float"
+              },
+              "pca:eigenVector" : {
+                "type" : "float"
+              },
+              "pca:histrogramBinEdges" : {
+                "type" : "float"
+              },
+              "pca:histrogramBinTotals" : {
+                "type" : "float"
+              },
+              "pca:varianceProportions" : {
+                "type" : "float"
+              },
+              "planet:itemType" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "planet:stripId" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "planet:strip_id" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "provider" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "start" : {
+                "type" : "date"
+              },
+              "type" : {
+                "type" : "keyword",
+                "ignore_above" : 512
+              },
+              "version" : {
+                "type" : "long"
+              }
+            }
+          },
+          "type" : {
+            "type" : "keyword"
+          }
+        }
+      }
+    }
+  }
+
